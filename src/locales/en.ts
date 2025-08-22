@@ -1,11 +1,11 @@
 export const en = {
   nav: {
     home: "Home",
-    apartments: "Apartments",
-    amenities: "Amenities",
-    gallery: "Gallery",
+    apartments: "Doctors",
+    amenities: "Services",
+    gallery: "Blog",
     contact: "Contact",
-    bookNow: "Book Now"
+    bookNow: "Book Appointment"
   },
   hero: {
     subtitle: "BEACHFRONT LUXURY ACCOMMODATION",
@@ -16,11 +16,11 @@ export const en = {
     scrollDown: "Scroll Down"
   },
   footer: {
-    description: "Luxurious beachfront apartments and hotel rooms with stunning sea views, offering the perfect blend of comfort and elegance for your dream vacation.",
+    description: "JustHair — Expert hair care & restoration. Book trusted doctors, compare treatments, and make informed choices.",
     quickLinks: "Quick Links",
     contact: "Contact",
     newsletter: "Newsletter",
-    newsletterDesc: "Subscribe to our newsletter for special deals and updates.",
+    newsletterDesc: "Subscribe to our newsletter for expert hair care tips and updates.",
     yourEmail: "Your email address",
     subscribe: "Subscribe",
     allRights: "All rights reserved."
