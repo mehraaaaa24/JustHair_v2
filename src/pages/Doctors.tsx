@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import DoctorCard, { DoctorProps } from "@/components/DoctorCard";
@@ -115,6 +116,7 @@ const allDoctors: DoctorProps[] = [
 
 export default function Doctors() {
   const { t } = useLanguage();
+  const [searchParams] = useSearchParams();
   const [filteredDoctors, setFilteredDoctors] = useState<DoctorProps[]>(allDoctors);
   const [specializationFilter, setSpecializationFilter] = useState<string>("all");
   const [cityFilter, setCityFilter] = useState<string>("all");
@@ -124,7 +126,16 @@ export default function Doctors() {
   useEffect(() => {
     // Scroll to top when component mounts
     window.scrollTo(0, 0);
-  }, []);
+    
+    // Apply filters from URL parameters if present
+    const patients = searchParams.get('patients');
+    const date = searchParams.get('date');
+    
+    if (patients) {
+      // You can use this to show a notice about patient count if needed
+      console.log('Searching for appointment with', patients, 'patients on', date);
+    }
+  }, [searchParams]);
   
   // Apply filters
   useEffect(() => {

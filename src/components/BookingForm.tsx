@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { Check, CalendarIcon, Stethoscope } from "lucide-react";
 import { format } from "date-fns";
+import { useNavigate } from "react-router-dom";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Calendar } from "@/components/ui/calendar";
@@ -21,6 +22,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function BookingForm() {
   const { t } = useLanguage();
+  const navigate = useNavigate();
   const [startDate, setStartDate] = useState<Date>();
   const [endDate, setEndDate] = useState<Date>();
   const [adults, setAdults] = useState("1");
@@ -29,14 +31,16 @@ export default function BookingForm() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // In a real app, this would send the appointment data to a server
-    console.log("Appointment submitted:", { startDate, endDate, adults, children });
-    setSubmitted(true);
     
-    // Reset form after 3 seconds
-    setTimeout(() => {
-      setSubmitted(false);
-    }, 3000);
+    // Build query parameters
+    const params = new URLSearchParams();
+    if (startDate) params.set('date', format(startDate, 'yyyy-MM-dd'));
+    if (endDate) params.set('followUpDate', format(endDate, 'yyyy-MM-dd'));
+    if (adults) params.set('patients', adults);
+    if (children && children !== '0') params.set('notes', children);
+    
+    // Navigate to doctors page with filters
+    navigate(`/doctors?${params.toString()}`);
   };
 
   return (
@@ -155,17 +159,8 @@ export default function BookingForm() {
       </div>
       
       <Button type="submit" className="w-full btn-primary relative">
-        {submitted ? (
-          <>
-            <Check className="mr-2 h-4 w-4" />
-            {t.bookingForm.bookingConfirmed}
-          </>
-        ) : (
-          <>
-            <Stethoscope className="mr-2 h-4 w-4" />
-            {t.bookingForm.checkAvailability}
-          </>
-        )}
+        <Stethoscope className="mr-2 h-4 w-4" />
+        {t.bookingForm.checkAvailability}
       </Button>
     </form>
   );
