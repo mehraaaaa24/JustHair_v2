@@ -15,26 +15,26 @@ interface Testimonial {
 const testimonials: Testimonial[] = [
   {
     id: 1,
-    name: "Sophia Martinez",
-    location: "New York, USA",
-    avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&h=150&fit=crop&crop=faces",
-    content: "My family and I had the most wonderful stay at MareSereno. The apartment was immaculate, with breathtaking sea views. The staff went above and beyond to make our vacation special.",
+    name: "Arjun Patel",
+    location: "Mumbai, India",
+    avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop&crop=faces",
+    content: "Dr. Sharma's expertise in hair transplant was exceptional. The FUE procedure was painless and the results after 8 months exceeded my expectations. Highly recommend JustHair platform.",
     rating: 5
   },
   {
     id: 2,
-    name: "Marco Rossi",
-    location: "Rome, Italy",
-    avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop&crop=faces",
-    content: "Absolutely perfect location, steps away from the beach. The apartment had everything we needed and more. The modern amenities combined with the traditional coastal charm created a truly magical experience.",
+    name: "Priya Singh",
+    location: "Delhi, India",
+    avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&h=150&fit=crop&crop=faces",
+    content: "I was struggling with female pattern hair loss for years. The consultation through JustHair connected me with the right specialist. PRP therapy has shown amazing results.",
     rating: 5
   },
   {
     id: 3,
-    name: "Emma Johnson",
-    location: "London, UK",
-    avatar: "https://images.unsplash.com/photo-1569913486515-b74bf7751574?w=150&h=150&fit=crop&crop=faces",
-    content: "We spent a wonderful week at this beachfront paradise. The sunrise views from our terrace were worth the trip alone. Exceptionally clean and beautifully designed spaces.",
+    name: "Rohit Kumar",
+    location: "Bangalore, India",
+    avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=faces",
+    content: "The booking process was seamless and the doctor was very professional. My scalp micropigmentation looks completely natural. Best decision I made for my confidence.",
     rating: 4
   },
 ];

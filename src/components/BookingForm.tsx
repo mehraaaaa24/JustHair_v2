@@ -1,6 +1,6 @@
 
 import { useState } from "react";
-import { Check, CalendarIcon, Users } from "lucide-react";
+import { Check, CalendarIcon, Stethoscope } from "lucide-react";
 import { format } from "date-fns";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
@@ -23,14 +23,14 @@ export default function BookingForm() {
   const { t } = useLanguage();
   const [startDate, setStartDate] = useState<Date>();
   const [endDate, setEndDate] = useState<Date>();
-  const [adults, setAdults] = useState("2");
+  const [adults, setAdults] = useState("1");
   const [children, setChildren] = useState("0");
   const [submitted, setSubmitted] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // In a real app, this would send the booking data to a server
-    console.log("Booking submitted:", { startDate, endDate, adults, children });
+    // In a real app, this would send the appointment data to a server
+    console.log("Appointment submitted:", { startDate, endDate, adults, children });
     setSubmitted(true);
     
     // Reset form after 3 seconds
@@ -162,7 +162,7 @@ export default function BookingForm() {
           </>
         ) : (
           <>
-            <Users className="mr-2 h-4 w-4" />
+            <Stethoscope className="mr-2 h-4 w-4" />
             {t.bookingForm.checkAvailability}
           </>
         )}
