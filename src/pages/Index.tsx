@@ -10,40 +10,40 @@ import { Link } from "react-router-dom";
 import { ArrowRight, Wifi, Utensils, Waves, LifeBuoy, MapPin, Coffee } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
-// Sample apartments data
+// Sample doctors data
 const featuredApartments: ApartmentProps[] = [
   {
     id: "1",
-    name: "Deluxe Sea View Suite",
-    description: "Luxurious suite with panoramic sea views, modern amenities, and a private balcony.",
-    price: 180,
-    capacity: 2,
-    size: 45,
-    image: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=800&h=600&fit=crop",
-    location: "Beachfront",
-    features: ["Wi-Fi", "Kitchen", "Bathroom", "Air Conditioning", "TV", "Balcony"]
+    name: "Dr. Rajesh Kumar",
+    description: "Hair Transplant Specialist with over 15 years of experience in FUE and FUT procedures.",
+    price: 1500,
+    capacity: 15,
+    size: 95,
+    image: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=800&h=600&fit=crop",
+    location: "Delhi",
+    features: ["FUE", "FUT", "PRP", "Consultation", "Follow-up", "Certified"]
   },
   {
     id: "2",
-    name: "Premium Family Apartment",
-    description: "Spacious apartment ideal for families, with full kitchen and stunning coastal views.",
-    price: 250,
-    capacity: 4,
-    size: 75,
-    image: "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800&h=600&fit=crop",
-    location: "Second row",
-    features: ["Wi-Fi", "Kitchen", "Bathroom", "Air Conditioning", "TV", "Washing Machine"]
+    name: "Dr. Priya Sharma",
+    description: "Dermatologist specializing in female hair loss and comprehensive scalp treatments.",
+    price: 1200,
+    capacity: 12,
+    size: 88,
+    image: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=800&h=600&fit=crop",
+    location: "Mumbai",
+    features: ["Female Hair Loss", "PRP", "Scalp Treatment", "Trichology", "Consultation", "Dermatology"]
   },
   {
     id: "3",
-    name: "Executive Beach Studio",
-    description: "Elegant studio with direct beach access, modern design, and premium finishes.",
-    price: 150,
-    capacity: 2,
-    size: 35,
-    image: "https://images.unsplash.com/photo-1598928506311-c55ded91a20c?w=800&h=600&fit=crop",
-    location: "Beachfront",
-    features: ["Wi-Fi", "Kitchenette", "Bathroom", "Air Conditioning", "TV"]
+    name: "Dr. Arjun Mehta",
+    description: "Expert in advanced hair restoration techniques and scalp micropigmentation.",
+    price: 1000,
+    capacity: 10,
+    size: 82,
+    image: "https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=800&h=600&fit=crop",
+    location: "Bangalore",
+    features: ["SMP", "Hair Restoration", "FUE", "Consultation", "Advanced Techniques"]
   }
 ];
 
@@ -115,7 +115,7 @@ export default function Index() {
                   {t.home.welcome.description2}
                 </p>
                 <Button asChild className="btn-primary">
-                  <Link to="/about">
+                  <Link to="/services">
                     {t.home.welcome.learnMore} <ArrowRight className="ml-2 h-4 w-4" />
                   </Link>
                 </Button>
@@ -124,22 +124,22 @@ export default function Index() {
               <div className="relative animate-fade-in [animation-delay:300ms]">
                 <div className="aspect-[4/3] rounded-2xl overflow-hidden">
                   <img 
-                    src="https://images.unsplash.com/photo-1519046904884-53103b34b206?w=800&h=600&fit=crop"
-                    alt="Seaside view" 
+                    src="https://images.unsplash.com/photo-1559599101-f09722fb4948?w=800&h=600&fit=crop"
+                    alt="Hair consultation" 
                     className="w-full h-full object-cover"
                   />
                 </div>
                 <div className="absolute -bottom-6 -left-6 w-2/3 rounded-2xl overflow-hidden shadow-xl">
                   <img 
-                    src="https://images.unsplash.com/photo-1545579133-99bb5ab189bd?w=400&h=300&fit=crop"
-                    alt="Luxury apartment interior" 
+                    src="https://images.unsplash.com/photo-1576086213369-97a306d36557?w=400&h=300&fit=crop"
+                    alt="Hair treatment procedure" 
                     className="w-full h-full object-cover"
                   />
                 </div>
                 <div className="absolute -top-6 -right-6 w-1/2 rounded-2xl overflow-hidden shadow-xl">
                   <img 
-                    src="https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?w=400&h=300&fit=crop"
-                    alt="Pool view" 
+                    src="https://images.unsplash.com/photo-1582719471384-894fbb16e074?w=400&h=300&fit=crop"
+                    alt="Modern clinic" 
                     className="w-full h-full object-cover"
                   />
                 </div>
@@ -210,7 +210,7 @@ export default function Index() {
             
             <div className="text-center mt-12">
               <Button asChild className="btn-primary">
-                <Link to="/apartments">
+                <Link to="/doctors">
                   {t.home.featuredApartments.viewAll} <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
               </Button>
@@ -265,7 +265,7 @@ export default function Index() {
                 {t.home.cta.description}
               </p>
               <Button asChild size="lg" className="btn-primary">
-                <Link to="/booking">{t.home.cta.bookNow}</Link>
+                <Link to="/book">{t.home.cta.bookNow}</Link>
               </Button>
             </div>
           </div>

@@ -8,11 +8,11 @@ export const en = {
     bookNow: "Book Appointment"
   },
   hero: {
-    subtitle: "BEACHFRONT LUXURY ACCOMMODATION",
-    title: "Experience Seaside Tranquility",
-    description: "Discover our exclusive collection of luxury beachfront apartments and hotel rooms, offering unparalleled comfort and breathtaking sea views.",
-    bookStay: "Book Your Stay",
-    exploreApartments: "Explore Apartments",
+    subtitle: "EXPERT HAIR CARE & RESTORATION",
+    title: "Transform Your Hair Journey",
+    description: "Connect with top hair specialists and explore proven treatments for hair transplant, restoration, and comprehensive care solutions.",
+    bookStay: "Book Appointment",
+    exploreApartments: "Find Doctors",
     scrollDown: "Scroll Down"
   },
   footer: {
@@ -26,20 +26,20 @@ export const en = {
     allRights: "All rights reserved."
   },
   bookingForm: {
-    title: "Book Your Stay",
-    checkIn: "Check-in Date",
-    checkOut: "Check-out Date",
-    adults: "Adults",
-    children: "Children",
-    adult: "Adult",
-    child: "Child",
+    title: "Book Appointment",
+    checkIn: "Preferred Date",
+    checkOut: "Follow-up Date",
+    adults: "Patients",
+    children: "Additional Notes",
+    adult: "Patient",
+    child: "Note",
     selectDate: "Select date",
     checkAvailability: "Check Availability",
-    bookingConfirmed: "Booking Confirmed!"
+    bookingConfirmed: "Appointment Confirmed!"
   },
   testimonials: {
-    title: "What Our Guests Say",
-    description: "Discover why our guests keep coming back to MareSereno for their seaside getaways."
+    title: "What Our Patients Say",
+    description: "Discover why patients trust JustHair for their hair restoration journey and ongoing care."
   },
   notFound: {
     title: "Page Not Found",
@@ -48,59 +48,59 @@ export const en = {
   },
   home: {
     welcome: {
-      subtitle: "Welcome to MareSereno",
-      title: "Luxury Seaside Accommodations",
-      description1: "Nestled on the pristine Mediterranean coastline, MareSereno offers an exquisite collection of luxury apartments and hotel rooms. Our beachfront accommodations combine elegant design with modern comfort, creating the perfect setting for an unforgettable seaside getaway.",
-      description2: "Whether you're seeking a romantic escape, a family vacation, or a peaceful retreat, our diverse range of accommodations caters to every preference and need. Each space is thoughtfully designed to provide panoramic sea views and direct beach access.",
+      subtitle: "Welcome to JustHair",
+      title: "Expert Hair Care Solutions",
+      description1: "JustHair connects you with India's leading hair specialists and dermatologists. Our platform offers access to certified doctors, proven treatments, and comprehensive care for all your hair restoration needs.",
+      description2: "Whether you're dealing with hair loss, considering a transplant, or seeking maintenance treatments, our network of experts provides personalized solutions. Each consultation is designed to understand your unique needs and goals.",
       learnMore: "Learn More"
     },
     booking: {
-      subtitle: "Book Your Stay",
-      title: "Reserve Your Perfect Getaway",
-      description: "Take the first step towards your dream vacation by checking availability and securing your preferred dates. Our simple booking process ensures a seamless experience from reservation to arrival.",
-      benefits: ["Instant confirmation", "Best rate guarantee", "Flexible cancellation options", "Secure payment"]
+      subtitle: "Book Your Consultation",
+      title: "Start Your Hair Journey",
+      description: "Take the first step towards hair restoration by booking a consultation with our certified specialists. Our simple booking process connects you with the right doctor for your needs.",
+      benefits: ["Instant confirmation", "Verified doctors", "Flexible rescheduling", "Secure booking"]
     },
     featuredApartments: {
-      subtitle: "Our Accommodations",
-      title: "Featured Apartments",
-      description: "Discover our most popular accommodation options, each offering a perfect blend of comfort, style, and breathtaking sea views.",
-      viewAll: "View All Apartments"
+      subtitle: "Top Specialists",
+      title: "Featured Doctors",
+      description: "Meet our most trusted hair specialists, each offering expertise in different areas of hair restoration and care.",
+      viewAll: "View All Doctors"
     },
     amenities: {
-      subtitle: "Hotel Amenities",
-      title: "Experience The Best",
-      description: "Enjoy our premium facilities and services designed to make your stay exceptional.",
+      subtitle: "Our Services",
+      title: "Comprehensive Hair Care",
+      description: "Explore our complete range of hair restoration and care services delivered by certified specialists.",
       features: {
         beachfront: {
-          title: "Beachfront Location",
-          description: "Direct access to pristine beaches with crystal clear waters."
+          title: "Hair Transplant",
+          description: "Advanced FUE and FUT techniques for natural-looking results."
         },
         pools: {
-          title: "Swimming Pools",
-          description: "Relax by our infinity pools with stunning sea views."
+          title: "PRP Therapy",
+          description: "Platelet-rich plasma treatments to stimulate hair growth."
         },
         restaurant: {
-          title: "Gourmet Restaurant",
-          description: "Enjoy exquisite local and international cuisine."
+          title: "Scalp Analysis",
+          description: "Comprehensive evaluation and personalized treatment plans."
         },
         wifi: {
-          title: "High-Speed Wi-Fi",
-          description: "Stay connected with complimentary high-speed internet."
+          title: "Expert Consultation",
+          description: "Professional guidance from certified trichologists."
         },
         bar: {
-          title: "Beach Bar & Café",
-          description: "Refreshing drinks and snacks served right on the beach."
+          title: "Follow-up Care",
+          description: "Ongoing support and maintenance treatments."
         },
         location: {
-          title: "Prime Location",
-          description: "Close to local attractions, shops, and restaurants."
+          title: "Convenient Locations",
+          description: "Multiple clinics across major cities for easy access."
         }
       }
     },
     cta: {
-      title: "Ready for Your Dream Vacation?",
-      description: "Book your stay today and experience the perfect blend of luxury, comfort, and stunning sea views.",
-      bookNow: "Book Now"
+      title: "Ready to Transform Your Hair?",
+      description: "Book your consultation today and take the first step towards effective hair restoration with our expert specialists.",
+      bookNow: "Book Consultation"
     }
   },
   apartments: {
