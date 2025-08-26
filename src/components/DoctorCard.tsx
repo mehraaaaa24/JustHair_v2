@@ -49,16 +49,17 @@ export default function DoctorCard({ doctor }: DoctorCardProps) {
         </p>
         
         <div className="flex flex-wrap gap-2 mb-4">
-          <div className="text-xs bg-muted px-2 py-1 rounded-full flex items-center">
-            <Clock className="h-3 w-3 mr-1" />
-            {doctor.experience}+ yrs
-          </div>
           <div className="text-xs bg-muted px-2 py-1 rounded-full">
             ⭐ {doctor.rating} ({doctor.totalReviews})
           </div>
           <div className="text-xs bg-muted px-2 py-1 rounded-full flex items-center">
-            <MapPin className="h-3 w-3 mr-1" />
-            {doctor.city}
+            ⏳ {doctor.experience} yrs
+          </div>
+          <div className="text-xs bg-muted px-2 py-1 rounded-full flex items-center">
+            👤 {doctor.totalReviews} consults
+          </div>
+          <div className="text-xs bg-muted px-2 py-1 rounded-full flex items-center">
+            📍 {doctor.city}
           </div>
         </div>
         
@@ -90,7 +91,7 @@ export default function DoctorCard({ doctor }: DoctorCardProps) {
               </Link>
             </Button>
             <Button size="sm" className="btn-primary" asChild>
-              <Link to={`/book?doctor=${doctor.id}`}>
+              <Link to={`/book?doctorId=${doctor.id}`}>
                 Book
               </Link>
             </Button>

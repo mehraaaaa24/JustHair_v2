@@ -178,11 +178,12 @@ export default function Doctors() {
         <section className="relative py-20 bg-gradient-to-r from-sea-light to-white dark:from-sea-dark dark:to-background overflow-hidden">
           <div className="container relative z-10">
             <div className="max-w-3xl mx-auto text-center animate-fade-in">
-              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent relative">
                 Our Expert Doctors
+                <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-24 h-0.5 bg-gradient-to-r from-transparent via-primary to-transparent opacity-80"></div>
               </h1>
               <p className="text-muted-foreground text-lg mb-6">
-                Find and book appointments with trusted hair care specialists across India.
+                Find and book India's trusted hair care specialists.
               </p>
             </div>
           </div>
@@ -294,8 +295,10 @@ export default function Doctors() {
             {filteredDoctors.length > 0 ? (
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {filteredDoctors.map((doctor, index) => (
-                  <div key={doctor.id} className="animate-fade-in" style={{ animationDelay: `${(index + 1) * 100}ms` }}>
-                    <DoctorCard doctor={doctor} />
+                  <div key={doctor.id} className="animate-fade-in h-full" style={{ animationDelay: `${(index + 1) * 100}ms` }}>
+                    <div className="h-full">
+                      <DoctorCard doctor={doctor} />
+                    </div>
                   </div>
                 ))}
               </div>

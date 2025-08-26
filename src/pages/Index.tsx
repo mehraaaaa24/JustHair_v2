@@ -185,7 +185,7 @@ export default function Index() {
           </div>
         </section>
         
-        {/* Featured Apartments */}
+        {/* Featured Doctors */}
         <section className="section">
           <div className="container">
             <div className="text-center max-w-3xl mx-auto mb-12 animate-fade-in">
@@ -202,8 +202,10 @@ export default function Index() {
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {featuredApartments.map((apartment, index) => (
-                <div key={apartment.id} className="animate-fade-in" style={{ animationDelay: `${(index + 1) * 100}ms` }}>
-                  <ApartmentCard apartment={apartment} />
+                <div key={apartment.id} className="animate-fade-in h-full" style={{ animationDelay: `${(index + 1) * 100}ms` }}>
+                  <div className="h-full">
+                    <ApartmentCard apartment={apartment} />
+                  </div>
                 </div>
               ))}
             </div>
@@ -221,35 +223,74 @@ export default function Index() {
         {/* Testimonials Section */}
         <TestimonialsSection />
         
-        {/* Features Section */}
+        {/* Services Section */}
         <section className="section bg-card">
           <div className="container">
             <div className="text-center max-w-3xl mx-auto mb-12 animate-fade-in">
               <span className="text-sm text-primary font-medium uppercase tracking-wider">
-                {t.home.amenities.subtitle}
+                Our Services
               </span>
               <h2 className="text-3xl md:text-4xl font-bold mt-2 mb-4">
-                {t.home.amenities.title}
+                Comprehensive Hair Care
               </h2>
               <p className="text-muted-foreground">
-                {t.home.amenities.description}
+                Complete range of hair restoration and care services by certified specialists
               </p>
             </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {features.map((feature, index) => (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {[
+                {
+                  icon: "💉",
+                  title: "Hair Transplant (FUE/FUT)",
+                  description: "Natural hairlines with advanced harvesting techniques"
+                },
+                {
+                  icon: "🩸",
+                  title: "PRP Therapy",
+                  description: "Platelet-rich plasma to stimulate hair regrowth"
+                },
+                {
+                  icon: "🔬",
+                  title: "Scalp Analysis",
+                  description: "Computerized assessment and personalized treatment plan"
+                },
+                {
+                  icon: "👨‍⚕️",
+                  title: "Expert Consultation",
+                  description: "Certified trichologists & dermatologists guidance"
+                },
+                {
+                  icon: "🔄",
+                  title: "Follow-up Care",
+                  description: "Ongoing support and treatment monitoring"
+                },
+                {
+                  icon: "📍",
+                  title: "Convenient Locations",
+                  description: "Multiple clinics & virtual consultation options"
+                }
+              ].map((service, index) => (
                 <div 
                   key={index} 
-                  className="glass-card p-6 rounded-xl animate-fade-in flex flex-col items-center text-center"
+                  className="glass-card p-6 rounded-xl animate-fade-in flex flex-col items-start text-left group hover:scale-105 transition-transform duration-300"
                   style={{ animationDelay: `${(index + 1) * 100}ms` }}
                 >
-                  <div className="mb-4 p-3 rounded-full bg-primary/10">
-                    {feature.icon}
+                  <div className="text-3xl mb-4 group-hover:scale-110 transition-transform duration-300">
+                    {service.icon}
                   </div>
-                  <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
-                  <p className="text-muted-foreground">{feature.description}</p>
+                  <h3 className="text-lg font-semibold mb-2">{service.title}</h3>
+                  <p className="text-muted-foreground text-sm">{service.description}</p>
                 </div>
               ))}
+            </div>
+            
+            <div className="text-center mt-12">
+              <Button asChild className="btn-primary">
+                <Link to="/services">
+                  Explore All Services <ArrowRight className="ml-2 h-4 w-4" />
+                </Link>
+              </Button>
             </div>
           </div>
         </section>
@@ -265,7 +306,7 @@ export default function Index() {
                 {t.home.cta.description}
               </p>
               <Button asChild size="lg" className="btn-primary">
-                <Link to="/book">{t.home.cta.bookNow}</Link>
+                <Link to="/doctors">{t.home.cta.bookNow}</Link>
               </Button>
             </div>
           </div>

@@ -34,7 +34,14 @@ export default function Navbar() {
   
   return <header className={cn("fixed top-0 left-0 right-0 z-50 transition-all duration-300", scrolled ? "bg-white/80 dark:bg-card/80 backdrop-blur-lg py-3 shadow-md" : "bg-transparent py-5")}>
       <nav className="container flex justify-between items-center">
-        <div className="flex items-center space-x-2">
+        <div className="flex items-center space-x-4">
+          <Link to="/" className="flex items-center">
+            <img 
+              src="/assets/logo-justhair.png" 
+              alt="JustHair" 
+              className="h-7 w-auto"
+            />
+          </Link>
           <LanguageSelector />
         </div>
 
@@ -50,7 +57,7 @@ export default function Navbar() {
         <div className="hidden md:flex items-center space-x-2">
           <ThemeToggle />
           <Button asChild className="btn-primary">
-            <Link to="/book">{t.nav.bookNow}</Link>
+            <Link to="/doctors">{t.nav.bookNow}</Link>
           </Button>
         </div>
 
@@ -84,7 +91,7 @@ export default function Navbar() {
             </div>
             
             <Button asChild className="w-full btn-primary mt-6">
-              <Link to="/book" onClick={() => setMobileMenuOpen(false)}>
+              <Link to="/doctors" onClick={() => setMobileMenuOpen(false)}>
                 {t.nav.bookNow}
               </Link>
             </Button>

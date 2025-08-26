@@ -1,6 +1,5 @@
-
 import { useState } from "react";
-import { Check, CalendarIcon, Stethoscope } from "lucide-react";
+import { Check, CalendarIcon, MapPin, Stethoscope } from "lucide-react";
 import { format } from "date-fns";
 import { useNavigate } from "react-router-dom";
 import { cn } from "@/lib/utils";
@@ -23,23 +22,25 @@ import { useLanguage } from "@/contexts/LanguageContext";
 export default function BookingForm() {
   const { t } = useLanguage();
   const navigate = useNavigate();
-  const [startDate, setStartDate] = useState<Date>();
-  const [endDate, setEndDate] = useState<Date>();
-  const [adults, setAdults] = useState("1");
-  const [children, setChildren] = useState("0");
-  const [submitted, setSubmitted] = useState(false);
+  const [preferredDate, setPreferredDate] = useState<Date>();
+  const [city, setCity] = useState("");
+  const [specialization, setSpecialization] = useState("");
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     
-    // Build query parameters
-    const params = new URLSearchParams();
-    if (startDate) params.set('date', format(startDate, 'yyyy-MM-dd'));
-    if (endDate) params.set('followUpDate', format(endDate, 'yyyy-MM-dd'));
-    if (adults) params.set('patients', adults);
-    if (children && children !== '0') params.set('notes', children);
+    if (!preferredDate || !city) {
+      return; // Required fields validation
+    }
     
-    // Navigate to doctors page with filters
+    const params = new URLSearchParams();
+    
+    params.append('date', preferredDate.toISOString().split('T')[0]);
+    params.append('city', city);
+    if (specialization && specialization !== "All Specializations") {
+      params.append('specialization', specialization);
+    }
+    
     navigate(`/doctors?${params.toString()}`);
   };
 
@@ -51,110 +52,73 @@ export default function BookingForm() {
       <h3 className="text-2xl font-bold text-center mb-6">{t.bookingForm.title}</h3>
       
       <div className="space-y-4">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          {/* Check-in Date */}
-          <div className="space-y-2">
-            <label htmlFor="check-in" className="block text-sm font-medium">
-              {t.bookingForm.checkIn}
-            </label>
-            <Popover>
-              <PopoverTrigger asChild>
-                <Button
-                  id="check-in"
-                  variant="outline"
-                  className={cn(
-                    "w-full justify-start text-left font-normal",
-                    !startDate && "text-muted-foreground"
-                  )}
-                >
-                  <CalendarIcon className="mr-2 h-4 w-4" />
-                  {startDate ? format(startDate, "PPP") : <span>{t.bookingForm.selectDate}</span>}
-                </Button>
-              </PopoverTrigger>
-              <PopoverContent className="w-auto p-0" align="start">
-                <Calendar
-                  mode="single"
-                  selected={startDate}
-                  onSelect={setStartDate}
-                  initialFocus
-                  disabled={(date) => date < new Date()}
-                  className="pointer-events-auto"
-                />
-              </PopoverContent>
-            </Popover>
-          </div>
-          
-          {/* Check-out Date */}
-          <div className="space-y-2">
-            <label htmlFor="check-out" className="block text-sm font-medium">
-              {t.bookingForm.checkOut}
-            </label>
-            <Popover>
-              <PopoverTrigger asChild>
-                <Button
-                  id="check-out"
-                  variant="outline"
-                  className={cn(
-                    "w-full justify-start text-left font-normal",
-                    !endDate && "text-muted-foreground"
-                  )}
-                >
-                  <CalendarIcon className="mr-2 h-4 w-4" />
-                  {endDate ? format(endDate, "PPP") : <span>{t.bookingForm.selectDate}</span>}
-                </Button>
-              </PopoverTrigger>
-              <PopoverContent className="w-auto p-0" align="start">
-                <Calendar
-                  mode="single"
-                  selected={endDate}
-                  onSelect={setEndDate}
-                  initialFocus
-                  disabled={(date) => date < (startDate || new Date())}
-                  className="pointer-events-auto"
-                />
-              </PopoverContent>
-            </Popover>
-          </div>
+        <div>
+          <label className="block text-sm font-medium mb-2">
+            {t.bookingForm.checkIn} *
+          </label>
+          <Popover>
+            <PopoverTrigger asChild>
+              <Button
+                variant="outline"
+                className={cn(
+                  "w-full justify-start text-left font-normal bg-card",
+                  !preferredDate && "text-muted-foreground"
+                )}
+              >
+                <CalendarIcon className="mr-2 h-4 w-4" />
+                {preferredDate ? format(preferredDate, "PPP") : <span>{t.bookingForm.selectDate}</span>}
+              </Button>
+            </PopoverTrigger>
+            <PopoverContent className="w-auto p-0" align="start">
+              <Calendar
+                mode="single"
+                selected={preferredDate}
+                onSelect={setPreferredDate}
+                disabled={(date) => date < new Date()}
+                initialFocus
+                className="pointer-events-auto"
+              />
+            </PopoverContent>
+          </Popover>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          {/* Adults */}
-          <div className="space-y-2">
-            <label htmlFor="adults" className="block text-sm font-medium">
-              {t.bookingForm.adults}
-            </label>
-            <Select value={adults} onValueChange={setAdults}>
-              <SelectTrigger id="adults" className="w-full">
-                <SelectValue placeholder="Select" />
-              </SelectTrigger>
-              <SelectContent>
-                {[1, 2, 3, 4, 5, 6].map((num) => (
-                  <SelectItem key={num} value={num.toString()}>
-                    {num} {num === 1 ? t.bookingForm.adult : t.bookingForm.adults}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
-          </div>
-          
-          {/* Children */}
-          <div className="space-y-2">
-            <label htmlFor="children" className="block text-sm font-medium">
-              {t.bookingForm.children}
-            </label>
-            <Select value={children} onValueChange={setChildren}>
-              <SelectTrigger id="children" className="w-full">
-                <SelectValue placeholder="Select" />
-              </SelectTrigger>
-              <SelectContent>
-                {[0, 1, 2, 3, 4].map((num) => (
-                  <SelectItem key={num} value={num.toString()}>
-                    {num} {num === 1 ? t.bookingForm.child : t.bookingForm.children}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
-          </div>
+        <div>
+          <label className="block text-sm font-medium mb-2">
+            City *
+          </label>
+          <Select value={city} onValueChange={setCity}>
+            <SelectTrigger className="bg-card">
+              <SelectValue placeholder="Select city" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="All Cities">All Cities</SelectItem>
+              <SelectItem value="Delhi">Delhi</SelectItem>
+              <SelectItem value="Mumbai">Mumbai</SelectItem>
+              <SelectItem value="Bangalore">Bangalore</SelectItem>
+              <SelectItem value="Chennai">Chennai</SelectItem>
+              <SelectItem value="Hyderabad">Hyderabad</SelectItem>
+              <SelectItem value="Pune">Pune</SelectItem>
+              <SelectItem value="Kolkata">Kolkata</SelectItem>
+            </SelectContent>
+          </Select>
+        </div>
+        
+        <div>
+          <label className="block text-sm font-medium mb-2">
+            Specialization
+          </label>
+          <Select value={specialization} onValueChange={setSpecialization}>
+            <SelectTrigger className="bg-card">
+              <SelectValue placeholder="Select specialization (optional)" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="All Specializations">All Specializations</SelectItem>
+              <SelectItem value="Hair Transplant Specialist">Hair Transplant Specialist</SelectItem>
+              <SelectItem value="Dermatologist">Dermatologist</SelectItem>
+              <SelectItem value="Trichologist">Trichologist</SelectItem>
+              <SelectItem value="Cosmetic Surgeon">Cosmetic Surgeon</SelectItem>
+            </SelectContent>
+          </Select>
         </div>
       </div>
       
